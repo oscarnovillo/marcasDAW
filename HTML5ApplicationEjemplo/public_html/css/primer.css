@@ -46,11 +46,11 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: red;
+    background-color: pink;
 }
 
 li {
-    float: left;
+   float: left;
 }
 
 li a {
@@ -64,4 +64,8 @@ li a {
 /* Change the link color to #111 (black) on hover */
 li a:hover {
     background-color: darkred;
+}
+
+li a.active{
+    background-color: green;
 }
