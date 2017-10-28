@@ -16,6 +16,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
@@ -81,28 +84,35 @@ public class AlumnosDAO {
             Logger.getLogger(AlumnosDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
-                if (rs!=null) rs.close();
-                if (stmt != null) stmt.close();
+                if (rs != null) {
+                    rs.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(AlumnosDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
             db.cerrarConexion(con);
         }
         return lista;
 
     }
 
-    public Alumno getUserById(Alumno alumnoOriginal) {
+    public Alumno getUserById(int id) {
         Alumno user = null;
         DBConnection db = new DBConnection();
+
         Connection con = null;
         try {
-            con = db.getConnection();
+            Context ctx = new InitialContext();
+            DataSource ds = (DataSource) ctx.lookup("jdbc/db4free");
+            con = ds.getConnection();
             QueryRunner qr = new QueryRunner();
             ResultSetHandler<Alumno> h
                     = new BeanHandler<>(Alumno.class);
-            user = qr.query(con, "select * FROM ALUMNOS where ID = ?", h, alumnoOriginal.getId());
+            user = qr.query(con, "select * FROM ALUMNOS where ID = ?", h, id);
         } catch (Exception ex) {
             Logger.getLogger(AlumnosDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {

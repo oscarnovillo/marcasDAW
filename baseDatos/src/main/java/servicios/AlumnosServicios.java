@@ -23,4 +23,11 @@ public class AlumnosServicios {
         return dao.getAllAlumnosJDBC();
     }
     
+    public Alumno getAlumnoById(int id){
+        AlumnosDAO dao = new AlumnosDAO();
+        
+        return dao.getUserById(id);
+        
+    }
+    
 }

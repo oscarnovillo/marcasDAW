@@ -10,7 +10,9 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -18,6 +20,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Alumno;
 import servicios.AlumnosServicios;
 
 /**
@@ -43,7 +46,9 @@ public class TemplateServlet extends HttpServlet {
             Template temp = Configuration.getInstance().getFreeMarker().getTemplate("alumnos.ftl");
             root.put("content","hola");
              AlumnosServicios as = new AlumnosServicios();
-             root.put("alumnos",as.getAllAlumnos());
+             List<Alumno> alumnos = new ArrayList();
+             alumnos.add(as.getAlumnoById(1));
+             root.put("alumnos",alumnos);
             temp.process(root, response.getWriter());
         } catch (TemplateException ex) {
             Logger.getLogger(TemplateServlet.class.getName()).log(Level.SEVERE, null, ex);
