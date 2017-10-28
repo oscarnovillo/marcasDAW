@@ -8,6 +8,11 @@ package dao;
 import model.Alumno;
 import java.math.BigInteger;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,7 +22,6 @@ import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
-
 
 /**
  *
@@ -44,6 +48,50 @@ public class AlumnosDAO {
         return lista;
     }
 
+    public List<Alumno> getAllAlumnosJDBC() {
+        List<Alumno> lista = new ArrayList<>();
+        Alumno nuevo = null;
+        DBConnection db = new DBConnection();
+        Connection con = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        try {
+            con = db.getConnection();
+            stmt = con.createStatement();
+            String sql;
+            sql = "SELECT * FROM ALUMNOS";
+            rs = stmt.executeQuery(sql);
+
+            //STEP 5: Extract data from result set
+            while (rs.next()) {
+                //Retrieve by column name
+                int id = rs.getInt("id");
+                String nombre = rs.getString("nombre");
+                Date fn = rs.getDate("fecha_nacimiento");
+                Boolean mayor = rs.getBoolean("mayor_edad");
+                nuevo = new Alumno();
+                nuevo.setFecha_nacimiento(fn);
+                nuevo.setId(id);
+                nuevo.setMayor_edad(mayor);
+                nuevo.setNombre(nombre);
+                lista.add(nuevo);
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(AlumnosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if (rs!=null) rs.close();
+                if (stmt != null) stmt.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(AlumnosDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            db.cerrarConexion(con);
+        }
+        return lista;
+
+    }
 
     public Alumno getUserById(Alumno alumnoOriginal) {
         Alumno user = null;
@@ -148,7 +196,7 @@ public class AlumnosDAO {
 
             int filas = qr.update(con,
                     "UPDATE LOGIN SET PASSWORD=?,MAIL=? WHERE USER=?",
-                    "", "","");
+                    "", "", "");
 
         } catch (Exception ex) {
             Logger.getLogger(AlumnosDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -157,7 +205,7 @@ public class AlumnosDAO {
         }
     }
 
-    public int cambiarPassUser(String codigo,String password) {
+    public int cambiarPassUser(String codigo, String password) {
         DBConnection db = new DBConnection();
         Connection con = null;
         int filas = 0;
@@ -168,7 +216,7 @@ public class AlumnosDAO {
             filas = qr.update(con,
                     "UPDATE LOGIN SET PASSWORD=? WHERE ACTIVACION=? "
                     + "AND fecha_renovacion > date_sub(now(),INTERVAL 1 HOUR)",
-                    password,codigo);
+                    password, codigo);
 
         } catch (Exception ex) {
             Logger.getLogger(AlumnosDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -178,7 +226,7 @@ public class AlumnosDAO {
         return filas;
 
     }
-    
+
     public int activarUser(String activacion) {
         DBConnection db = new DBConnection();
         Connection con = null;
@@ -213,7 +261,7 @@ public class AlumnosDAO {
             BigInteger id = qr.insert(con,
                     "INSERT INTO LOGIN (USER,PASSWORD,MAIL,ACTIVACION,ACTIVO,FECHA_RENOVACION) VALUES(?,?,?,?,?,now())",
                     new ScalarHandler<BigInteger>(),
-                    "","","", activacion, 0);
+                    "", "", "", activacion, 0);
 
             u.setId(id.longValue());
             con.commit();

@@ -20,7 +20,7 @@ public class AlumnosServicios {
     {
         AlumnosDAO dao = new AlumnosDAO();
         
-        return dao.getAllAlumnos();
+        return dao.getAllAlumnosJDBC();
     }
     
 }

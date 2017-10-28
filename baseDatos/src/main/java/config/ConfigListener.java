@@ -20,7 +20,8 @@ public class ConfigListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-      Configuration.getInstance(sce.getServletContext().getResourceAsStream("/WEB-INF/config.yml"));
+      Configuration.getInstance(sce.getServletContext().getResourceAsStream("/WEB-INF/config.yml"),
+              sce.getServletContext());
     }
 
     @Override
