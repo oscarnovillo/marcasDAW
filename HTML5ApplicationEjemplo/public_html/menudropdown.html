@@ -9,8 +9,28 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" 
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+39+Text" rel="stylesheet">
         <style>
+            @media (max-width: 600px) {
+                html{
+                    font-size:10px;
+                }
+            }
+            @media (min-width: 600px) {
+                html{
+                    font-size:20px;
+                }
+            }
+
+            body{
+                font-family: 'Libre Barcode 39 Text', cursive;
+                font-size:4rem;
+
+            }
+            
             /* Navbar container */
             .navbar {
                 overflow: hidden;
@@ -31,6 +51,7 @@ and open the template in the editor.
             /* The dropdown container */
             .dropdown {
                 float: left;
+                font-size:16px;
                 overflow: hidden;
             }
 
@@ -78,6 +99,15 @@ and open the template in the editor.
             .dropdown:hover .dropdown-content {
                 display: block;
             }
+            .blurry-text {
+                color: transparent;
+                text-shadow: 0 0 15px rgba(0,0,0,0.5);
+            }
+            .blurry-text:hover {
+                color:black;
+               text-shadow: 0 0 0px rgba(0,0,0,0.5);
+               cursor: default;
+            }
         </style>
     </head>
     <body>
@@ -88,12 +118,17 @@ and open the template in the editor.
                 <button class="dropbtn">Dropdown 
                     <i class="fa fa-caret-down"></i>
                 </button>
-                <div class="dropdown-content">
+                <div class="dropdown-content blurry-text">
                     <a href="#">Link 1</a>
                     <a href="#">Link 2</a>
                     <a href="#">Link 3</a>
                 </div>
             </div> 
         </div>
+
+        <div ><span class="blurry-text" style="display:block;text-align:justify;text-justify: distribute">TEXTO MALDITO bsdg sdgb dgb dsgb dsgb sdgb sdgb sdgb fdg 
+            sdg sdg sdg sfg sf gfgggggg
+            sdg sdfg sdfg dfg dfg dfg dfg dfg dfg fg
+            fdg dfg dfg dfg dfg dfg fg fg dfg </span></div>
     </body>
 </html>
