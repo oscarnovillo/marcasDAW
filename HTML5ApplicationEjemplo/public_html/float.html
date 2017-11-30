@@ -10,11 +10,16 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-            div{
-
+            .div{
+                text-indent: 40px;
                 height:200px;
             }
+            .div::first-letter{
+                color:white;
+                font-size: 30px;
+            }
             body{
+                background: grey;
                 margin:0px
             }
             .clearfix::before{
@@ -24,18 +29,18 @@ and open the template in the editor.
             }
             .clearfix::after{
                 clear:both;
-                content: 'hola';
-    display: block;
+                content: '';
+                display: block;
             }
 
         </style>
     </head>
     <body>
-        <div class="clearfix" style="background: green;height:100px">
-            <div style="background: red;float:left;height:100px">TODO write content</div>
-            <div class="clearfix" style="background: yellow;float:left">TODO write content</div>
+        <div class="clearfix" style="margin-bottom:100px;background: green">
+            <div class="div" style="background: red;float:left;height:100px">TODO write content</div>
+            <div style="background: yellow;float:left">TODO write content</div>
         </div>
         
-        <div class="clearfix" style="clear:both;float:left;background: blue;">TODO write content</div>
+        <div  class="div" style="background: blue;">TODO write content</div>
     </body>
 </html>
