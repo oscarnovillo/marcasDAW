@@ -12,12 +12,24 @@ and open the template in the editor.
     </head>
     <body>
         <div>TODO write content</div>
-        insulto: <input placeholder="insultos" style="border:20px solid black;border-radius: 10px;text-align: right;padding: 100px;display:block;width: 200px" type="text"  name="test" />
+        insulto: <input placeholder="flores" list="flores" style="border:20px solid black;border-radius: 10px;text-align: right;padding: 100px;display:block;width: 200px" type="text"  name="test" />
+        <datalist id="flores">
+            <option value="Internet Explorer">
+            <option value="Firefox">
+            <option value="Chrome">
+            <option value="Opera">
+            <option value="Safari">
+            <option value="Opera2">
+            <option value="Safari2"> 
+        </datalist>
+
+
+
         <form name="ese" method="POST" action="https://www.w3schools.com/action_page.php">
-            
+
             este suspende fijo: <input type="password" name="vaasuspender" value="" />
             <input type="hidden" name="oculto" value="noloves" />
-            
+
             <select name="kiko" style="width: 200px" >
                 <option value="1" >uno</option>
                 <option value="2">dos</option>
@@ -36,18 +48,18 @@ and open the template in the editor.
             <input type="radio" name="test" value="2" />
             <input type="radio" name="test" value="3" />
             <input type="radio" name="test2" value="3" />
-            
-            
+
+
             <input type="color" name="color"  />
             <input type="date" name="date"  />
             <input type="number" name="number" />
-             <input type="email" name="email" />
-            
+            <input type="email" name="email" />
+
             <input type="button" value="jojojo" name="jjjjj" onclick="alert('hola');" />
             <input type="reset" value="cancel" name="hjfhjhf" />
             <button name="jj">text del boton</button>
         </form>
-        <input type="button" value="ir marca" name="jjjjj" onclick="windows.location.href='www.marca.es'" />
-        
+        <input type="button" value="ir marca" name="jjjjj" onclick="location = 'http://www.marca.es'" />
+
     </body>
 </html>
