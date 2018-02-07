@@ -16,34 +16,78 @@ and open the template in the editor.
         crossorigin="anonymous"></script>
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
+        <style>
+            /* label color */
+            .input-field label {
+                color: red;
+            }
+            /* label focus color */
+            .input-field input[type=text]:focus + label {
+                color: red !important;
+            }
+            /* label underline focus color */
+            .input-field input[type=text]:focus {
+                border-bottom: 1px solid red !important;
+                box-shadow: 0 1px 0 0 red !important;
+            }
+        </style>
 
 
     </head>
     <body>
         <form name="ese" method="POST" action="https://www.w3schools.com/action_page.php">
-           <div class="row">
-             
-            <div class="input-field col s4" >
-                <i class="material-icons prefix">account_circle</i>
-                <input placeholder="Placeholder" name="text" id="first_name" type="text" class="validate">
-                <label for="first_name">First Name</label>
+            <div class="row">
+
+                <div class="input-field col s4" >
+                    <i class="material-icons prefix">account_circle</i>
+                    <input list="names" placeholder="Placeholder" name="text" id="first_name" type="text" class="validate">
+                    <label for="first_name">First Name</label>
+                </div>
+                <datalist id="names">
+                    <option value="Internet Explorer">
+                    <option value="Firefox">
+                    <option value="Chrome">
+                    <option value="Opera">
+                    <option value="Safari">
+                </datalist>
+
+                <div class="input-field col offset-s2 s4">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="app" type="text" name="werweR" class="validate">
+                    <label for="app">asdasd</label>
+                </div>
+                <div class="input-field col offset-s2 s4">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="app" type="text" name="werweR" class="validate">
+                    <label for="app">asdasd</label>
+                </div>    
             </div>
-                <div>
-            <div class="input-field col offset-s2 s4">
-                <i class="material-icons prefix">account_circle</i>
-                <input id="app" type="text" name="werweR" class="validate">
-                <label for="app">asdasd</label>
+            <div class="row">
+                <div class="col offset-s6 s4">
+                    <input type="text" name="fecha" class="datepicker">
+                </div>
             </div>
-                  </div>
-            </div>
+
             <button class="btn waves-effect waves-light" type="submit" >Submit
                 <i class="material-icons right">send</i>
             </button>
-         
+
         </form>
+        <script>
+            $('.datepicker').pickadate({
+                format: 'dd-mm-yyyy',
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 15, // Creates a dropdown of 15 years to control year,
+                monthsFull: ['Enero', 'Febrero', 'Marzo', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                weekdaysShort: ['Dom', 'Lun', 'Mar', 'Mir', 'Jue', 'Vie', 'Sab'],
+                today: 'Hoy',
+                clear: 'Limpiar',
+                close: 'Kiko',
+                closeOnSelect: false // Close upon selecting a date,
+            });
+        </script>
     </body>
 </html>
