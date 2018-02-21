@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--
+    TODO define vocabulary identification
+    PUBLIC ID: -//vendor//vocabulary//EN
+    SYSTEM ID: http://server/path/vehiculo1.dtd
+
+-->
+
+<!--
+    An example how to use this DTD from your XML document:
+
+    <?xml version="1.0"?>
+
+    <!DOCTYPE zanalcar SYSTEM "vehiculo1.dtd">
+
+    <zanalcar>
+    ...
+    </zanalcar>
+-->
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT zanalcar (vehiculos)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT vehiculos (coche|moto|quad|bici)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT coche (precioventa,preciocompra,color,marca,matricula,km)>
+<!ATTLIST coche
+    color CDATA #IMPLIED
+    matricula CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT precioventa (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT preciocompra (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT color (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT marca (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT matricula (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT km (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT moto (precioventa|preciocompra|color|marca|matricula|km)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT quad (precioventa|preciocompra|color|marca|matricula|km)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT bici (precioventa|preciocompra|color|marca|cambio|num_marchas)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT cambio EMPTY>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT num_marchas EMPTY>

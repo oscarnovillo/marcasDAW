@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<persons
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='newXmlSchema.xsd'>
+    <person lang="EN">
+        <firstname></firstname>
+        <lastname></lastname>
+        <children lang="EN">
+            <childname></childname>
+            <childname></childname>
+            <childname></childname>
+        </children>
+    </person>
+    <person lang="EN">
+        <firstname></firstname>
+        <lastname></lastname>
+        <children lang="EN">
+            <childname></childname>
+        </children>
+    </person>
+    <person lang="EN">
+        <firstname></firstname>
+        <lastname></lastname>
+        <children lang="EN">
+            <childname></childname>
+        </children>
+    </person>
+
+</persons>

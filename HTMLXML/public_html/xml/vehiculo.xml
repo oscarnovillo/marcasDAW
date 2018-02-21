@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<zanalcar>
+    <vehiculos>
+        <coche color="" matricula="" >
+            <precioventa>12</precioventa>
+            <preciocompra>18</preciocompra>
+            <color>rojo</color>
+            <marca>fujitsu</marca>
+            <matricula>789uj</matricula>
+            <km>1000000</km>
+        </coche>
+        <moto>
+            <precioventa></precioventa>
+            <preciocompra></preciocompra>
+            <color></color>
+            <marca></marca>
+            <matricula></matricula>
+            <km></km>
+        </moto>
+        <coche>
+            <precioventa></precioventa>
+            <preciocompra></preciocompra>
+            <color></color>
+            <marca></marca>
+            <matricula></matricula>
+            <km></km>
+        </coche>
+        <quad>
+            <precioventa></precioventa>
+            <preciocompra></preciocompra>
+            <color></color>
+            <marca></marca>
+            <matricula></matricula>
+            <km></km>
+        </quad> 
+        <coche>
+            <precioventa></precioventa>
+            <preciocompra></preciocompra>
+            <color></color>
+            <marca></marca>
+            <matricula></matricula>
+            <km></km>
+        </coche> 
+        <bici>
+            <precioventa></precioventa>
+            <preciocompra></preciocompra>
+            <color></color>
+            <marca></marca>
+            <cambio></cambio>
+            <num_marchas></num_marchas>
+        </bici> 
+        <bici>
+            <precioventa></precioventa>
+            <preciocompra></preciocompra>
+            <color></color>
+            <marca></marca>
+            <cambio></cambio>
+            <num_marchas></num_marchas>
+        </bici>                     
+    </vehiculos>
+</zanalcar>
