@@ -10,25 +10,40 @@ and open the template in the editor.
     xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
     xsi:noNamespaceSchemaLocation='newXmlSchema.xsd'>
     <person lang="EN">
+        <firstname>hola</firstname>
         <lastname></lastname>
-        <firstname></firstname>
-        
         <children lang="EN">
             <childname></childname>
+        </children>
+        <children lang="EN">
             <childname></childname>
+        </children>
+        <children lang="EN">
             <childname></childname>
         </children>
     </person>
     <person lang="EN">
-        <firstname></firstname>
+        <firstname>1</firstname>
         <lastname></lastname>
-        <children lang="CAT">
+        <children lang="EN">
+            <childname></childname>
+        </children>
+        <children lang="EN">
+            <childname></childname>
+        </children>
+        <children lang="EN">
             <childname></childname>
         </children>
     </person>
     <person lang="EN">
-        <firstname></firstname>
+        <firstname>1233</firstname>
         <lastname></lastname>
+        <children lang="EN">
+            <childname></childname>
+        </children>
+        <children lang="EN">
+            <childname></childname>
+        </children>
         <children lang="EN">
             <childname></childname>
         </children>

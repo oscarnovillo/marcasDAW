@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<biblioteca>
+    <libros>
+        <libro>
+            <isbn>98798wfdoifhwoif</isbn>
+            <titulo></titulo>
+            <autor></autor>
+            <numpaginas></numpaginas>
+            <prestado></prestado>
+        </libro>
+        <libro>
+            <isbn>wr2342348wfdoifhwoif</isbn>
+            <titulo></titulo>
+            <autor></autor>
+            <numpaginas></numpaginas>
+            <prestado></prestado>
+        </libro>
+        <libro>
+           <isbn>wr2342348wfdoifhwoif</isbn>
+            <titulo></titulo>
+            <autor></autor>
+            <numpaginas></numpaginas>
+            <prestado></prestado>          
+        </libro>       
+    </libros>
+    <usuarios>
+        <usuario>
+            <nombre></nombre>
+            <numLibros></numLibros>
+            <libros>
+                <libro>
+                    <isbn>sdfsfdoifhwoif</isbn>
+                    <titulo></titulo>
+                    <autor></autor>
+                    <numpaginas></numpaginas>
+                    <prestado></prestado>    
+                </libro>
+            </libros>
+        </usuario>
+        
+    </usuarios>
+    
+    
+</biblioteca>

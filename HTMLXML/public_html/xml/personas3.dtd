@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--
+    TODO define vocabulary identification
+    PUBLIC ID: -//vendor//vocabulary//EN
+    SYSTEM ID: http://server/path/personas3.dtd
+
+-->
+
+<!--
+    An example how to use this DTD from your XML document:
+
+    <?xml version="1.0"?>
+
+    <!DOCTYPE persons SYSTEM "personas3.dtd">
+
+    <persons>
+    ...
+    </persons>
+-->
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT persons (person)*>
+<!ATTLIST persons
+    xsi:noNamespaceSchemaLocation CDATA #IMPLIED
+    xmlns:xsi CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT person (firstname,lastname,children*)>
+<!ATTLIST person
+    lang CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT firstname (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT lastname EMPTY>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT children (childname)*>
+<!ATTLIST children
+    lang CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT childname EMPTY>
