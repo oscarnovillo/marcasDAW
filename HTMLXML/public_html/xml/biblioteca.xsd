@@ -14,6 +14,7 @@ and open the template in the editor.
     <xs:element name="biblioteca">
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="nombre" type="xs:string" /> 
                 <xs:element name="libros" > 
                     <xs:complexType>
                         <xs:sequence>

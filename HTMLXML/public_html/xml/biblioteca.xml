@@ -7,6 +7,7 @@ and open the template in the editor.
 
 
 <biblioteca>
+    <nombre>san juan</nombre>
     <libros>
         <libro>
             <isbn>98798wfdoifhwoif</isbn>
