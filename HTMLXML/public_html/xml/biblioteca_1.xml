@@ -19,14 +19,14 @@ and open the template in the editor.
         <libro>
             <isbn>wr2342348wfdoifhwoif</isbn>
             <titulo>mi cabra</titulo>
-            <autor>oscar</autor>
+            <autor>juan</autor>
             <numpaginas>1212</numpaginas>
             <prestado>false</prestado>
         </libro>
         <libro>
            <isbn>wr2342348wfdoifhwoif</isbn>
             <titulo>mis alumnos</titulo>
-            <autor>juan</autor>
+            <autor>oscar</autor>
             <numpaginas>1212</numpaginas>
             <prestado>true</prestado>          
         </libro>       
