@@ -35,7 +35,7 @@
                         <tr>
               
                             <xsl:choose>
-                                <xsl:when test="numpaginas equals 1000" >
+                                <xsl:when test="numpaginas > 1000" >
                                     <td style="background:red" >
                                         <xsl:value-of select="titulo"/>
                                     </td>
