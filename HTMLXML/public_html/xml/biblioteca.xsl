@@ -18,10 +18,28 @@
         <html>
             <head>
                 <title>BIBLIOTECA</title>
+                <link href="../css/newcss.css" rel="stylesheet" type="text/css"/>
             </head>
             <body>
                 <h1>BIBLITECA <xsl:value-of select="nombre" /> </h1>
+                <xsl:value-of select="libros/libro/isbn" /> 
                 
+                <xsl:value-of select="usuarios/usuario/nombre" />
+                
+                <table border="1">
+                    
+                    <tr>
+                        <td>USUARIOS</td>
+                        
+                    </tr>
+                     <xsl:for-each select="usuarios/usuario">
+                         <tr>
+                             <td class="nombre">
+                                <xsl:value-of select="nombre"/> 
+                             </td>
+                      </tr>
+                    </xsl:for-each>
+                </table>
                 <table border="1">
                     
                     <tr>
@@ -30,13 +48,13 @@
                     </tr>
           
                     
-                    <xsl:for-each select="libros/libro">
+                    <xsl:for-each select="empleados/cajero">
                         <xsl:sort select="autor"/>
                         <tr>
               
                             <xsl:choose>
-                                <xsl:when test="numpaginas > 1000" >
-                                    <td style="background:red" >
+                                <xsl:when test="prestado = 'true'" >
+                                    <td class="prestado" >
                                         <xsl:value-of select="titulo"/>
                                     </td>
                                 </xsl:when>
