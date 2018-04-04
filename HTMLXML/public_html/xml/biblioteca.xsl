@@ -48,7 +48,7 @@
                     </tr>
           
                     
-                    <xsl:for-each select="empleados/cajero">
+                    <xsl:for-each select="libros/libro">
                         <xsl:sort select="autor"/>
                         <tr>
               
