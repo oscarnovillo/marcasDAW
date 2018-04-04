@@ -15,11 +15,15 @@ import javax.xml.bind.annotation.XmlID;
  */
 public class Alumno {
     
+    
     private String nombre;
     private String apellidos;
     private float recibo;
 
+    
     private String id;
+    
+
     private Actividad[]actividades;
 
     public Alumno() {

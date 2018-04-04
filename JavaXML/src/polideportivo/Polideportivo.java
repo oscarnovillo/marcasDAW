@@ -6,6 +6,7 @@
 package polideportivo;
 
 import java.util.Scanner;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -70,8 +71,7 @@ public class Polideportivo {
         alumnos[0] = new Alumno("juan", "perez");
         alumnos[1] = new Alumno("pedro", "perez");
         
-        actividades[0].setPrueba(alumnos[0]);
-        actividades[1].setPrueba(alumnos[0]);
+
         actividades[0].addAlumno(alumnos[0]);
         actividades[0].addAlumno(alumnos[1]);
         actividades[1].addAlumno(alumnos[0]);
