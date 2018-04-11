@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <hashDate>
-    <jj>
+    <alumnos>
         <entry>
-            <key>jj</key>
-            <value>
-                <birth>2018-04-11</birth>
+            <key>2018-04-12</key>
+            <listo>
+                <birth>2018-04-12</birth>
                 <nombre>jj</nombre>
-            </value>
+                <id>1</id>
+            </listo>
         </entry>
-    </jj>
-    <fecha>2018-04-11</fecha>
+        <entry>
+            <key>2016-07-08</key>
+            <tonto>
+                <birth>2018-04-12</birth>
+                <nombre>jj</nombre>
+            </tonto>
+        </entry>
+    </alumnos>
+    <fecha>2018-04-12</fecha>
     <fechas>
-        <fechas>2018-04-11</fechas>
+        <fechas>2018-04-12</fechas>
     </fechas>
 </hashDate>

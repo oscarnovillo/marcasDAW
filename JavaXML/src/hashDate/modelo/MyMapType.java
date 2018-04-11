@@ -5,11 +5,17 @@
  */
 package hashDate.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author oscar
  */
-public class Tonto extends Persona{
+public class MyMapType {
     
-    public int id=1;
+    
+    public List<MyMapEntry> entry = 
+      new ArrayList<MyMapEntry>();
+    
 }

@@ -33,13 +33,19 @@ public class HashDate {
         Persona p = new Tonto();
         p.setNombre("jj");
         p.setBirth(LocalDate.now());
-        alumnos.put(p.getNombre(),p);
+        alumnos.put(LocalDate.now(),p);
+        p = new Listo();
+        p.setNombre("jj");
+        p.setBirth(LocalDate.now());
+        alumnos.put(LocalDate.of(2016,7,8),p);
         
     }
     
-@XmlElementWrapper (name="jj")
+
+   
+    @XmlJavaTypeAdapter(MyMapAdapter.class)
     @XmlElement
-    public HashMap<String,Persona> alumnos;
+    public HashMap<LocalDate,Persona> alumnos;
     
 
     private LinkedList<LocalDate> fechas;
