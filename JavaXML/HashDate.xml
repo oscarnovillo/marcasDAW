@@ -3,18 +3,18 @@
     <alumnos>
         <entry>
             <key>2018-04-12</key>
-            <listo>
-                <birth>2018-04-12</birth>
-                <nombre>jj</nombre>
-                <id>1</id>
-            </listo>
-        </entry>
-        <entry>
-            <key>2016-07-08</key>
             <tonto>
                 <birth>2018-04-12</birth>
                 <nombre>jj</nombre>
+                <id>1</id>
             </tonto>
+        </entry>
+        <entry>
+            <key>2016-07-08</key>
+            <listo>
+                <birth>2018-04-12</birth>
+                <nombre>jj</nombre>
+            </listo>
         </entry>
     </alumnos>
     <fecha>2018-04-12</fecha>
