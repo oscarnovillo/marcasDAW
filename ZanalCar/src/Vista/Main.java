@@ -92,12 +92,15 @@ public class Main {
 
     public static void guardar(ZanalCar z) {
         try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(ZanalCar.class);
+            JAXBContext jaxbContext = 
+              JAXBContext.newInstance(ZanalCar.class);
             
-            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+            Marshaller jaxbMarshaller = 
+              jaxbContext.createMarshaller();
             
             
-            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            jaxbMarshaller.setProperty(
+              Marshaller.JAXB_FORMATTED_OUTPUT, true);
             
             jaxbMarshaller.marshal(z, new File("zanalcar.xml"));
         } catch (JAXBException ex) {
