@@ -48,6 +48,7 @@ public class HashDate {
     public HashMap<LocalDate,Persona> alumnos;
     
 
+    
     private LinkedList<LocalDate> fechas;
     
 
