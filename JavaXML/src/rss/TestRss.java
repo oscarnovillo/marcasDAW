@@ -46,6 +46,9 @@ public class TestRss {
 
                 for (Item i : p.channel.getItem()) {
                     System.out.println(i.getTitle());
+                    System.out.println(i.mediaTitle);
+                    if (i.thumbnail !=null)
+                   System.out.println(i.thumbnail.url);
                 }
             }
         } catch (JAXBException ex) {
