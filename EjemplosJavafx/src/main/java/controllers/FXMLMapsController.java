@@ -21,6 +21,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.shape.PolylineBuilder;
 
 /**
  * FXML Controller class
@@ -39,6 +40,7 @@ public class FXMLMapsController implements Initializable, MapComponentInitialize
     public void handleButton(ActionEvent event)
     {
         map.setCenter(new LatLong(40.4893538421231,-3.6827461557));
+        PolylineBuilder.create();
     }
     
     /**
@@ -101,7 +103,7 @@ public class FXMLMapsController implements Initializable, MapComponentInitialize
         map.addMarker( bobUnderwoodMarker );
         map.addMarker( tomChoiceMarker );
         map.addMarker( fredWilkieMarker );
-        
+      
         InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
         infoWindowOptions.content("<h2>Fred Wilkie</h2>"
                                 + "Current Location: Safeway<br>"
