@@ -10,6 +10,7 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
@@ -27,7 +28,7 @@ public class MapsMain extends Application {
         //BorderPane root = FXMLLoader.load(getClass().getResource("/fxml/FXMLMenu.fxml"));
             FXMLLoader loaderMenu = new FXMLLoader(
               getClass().getResource("/fxml/FXMLMaps.fxml"));
-            AnchorPane root = loaderMenu.load();
+            Parent root = loaderMenu.load();
            
             
             Scene scene = new Scene(root);

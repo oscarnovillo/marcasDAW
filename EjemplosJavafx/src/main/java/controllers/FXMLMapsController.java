@@ -8,6 +8,8 @@ package controllers;
 import com.google.api.client.util.ArrayMap;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
+import com.lynden.gmapsfx.javascript.event.UIEventType;
+import com.lynden.gmapsfx.javascript.object.Animation;
 import com.lynden.gmapsfx.javascript.object.GoogleMap;
 import com.lynden.gmapsfx.javascript.object.InfoWindow;
 import com.lynden.gmapsfx.javascript.object.InfoWindowOptions;
@@ -19,16 +21,21 @@ import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
 import com.lynden.gmapsfx.javascript.object.Marker;
 import com.lynden.gmapsfx.javascript.object.MarkerOptions;
 import com.lynden.gmapsfx.shapes.Polyline;
+import com.lynden.gmapsfx.shapes.PolylineOptions;
 import dao.BusDao;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
+import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
+import netscape.javascript.JSObject;
 
 /**
  * FXML Controller class
@@ -40,7 +47,16 @@ public class FXMLMapsController implements Initializable, MapComponentInitialize
     @FXML
     private GoogleMapView mapView;
 
+    @FXML
+    private ComboBox combo;
+
     private GoogleMap map;
+
+    @FXML
+    public void handleCombo(ActionEvent event) {
+        System.out.println(combo.getSelectionModel().getSelectedItem().toString());
+
+    }
 
     @FXML
     public void handleButton(ActionEvent event) throws IOException {
@@ -48,47 +64,38 @@ public class FXMLMapsController implements Initializable, MapComponentInitialize
 
         LatLong centreP = new LatLong(40.4893538421231, -3.6827461557);
         LatLong start = new LatLong(40.4893538421231, -3.6827461557 + 0.02);
-        
+
         LatLong[] latlongs = new LatLong[2];
         latlongs[0] = centreP;
         latlongs[1] = start;
 
         MVCArray array = new MVCArray(latlongs);
-        
-        Polyline pp = new Polyline();
-        pp.setPath(array);
+
+        PolylineOptions polyOpts = new PolylineOptions()
+                .path(array)
+                .strokeColor("#00FF00")
+                .strokeWeight(2);
+        Polyline pp = new Polyline(polyOpts);
+
         map.addMapShape(pp);
-        
+
         map.setZoom(16);
-        
-        
-            BusDao bus = new BusDao();
-            ArrayList arrives = bus.processRequest();
-            for (int i = 0; i < arrives.size(); i++) {
-            ArrayMap arrive = (ArrayMap)arrives.get(i);
-            
-            LatLong punto = new LatLong(((BigDecimal)arrive.get("latitude")).doubleValue(),
-             ((BigDecimal)arrive.get("longitude")).doubleValue());
-            map.setCenter(punto);
-             MarkerOptions markerOptions5 = new MarkerOptions();
-        markerOptions5.position(punto);
 
-        Marker joeSmithMarker = new Marker(markerOptions5);
-        map.addMarker(joeSmithMarker);
-            
-            
-            
-        }
-            
-            
-            
-            
-            
-        
-        
-        
-        
+        BusDao bus = new BusDao();
+        String json = bus.GetStopsLine("76", "PLAZA BEATA");
 
+//            for (int i = 0; i < arrives.size(); i++) {
+//            ArrayMap arrive = (ArrayMap)arrives.get(i);
+//            
+//            LatLong punto = new LatLong(((BigDecimal)arrive.get("latitude")).doubleValue(),
+//             ((BigDecimal)arrive.get("longitude")).doubleValue());
+//            map.setCenter(punto);
+//             MarkerOptions markerOptions5 = new MarkerOptions();
+//        markerOptions5.position(punto);
+//
+//        Marker joeSmithMarker = new Marker(markerOptions5);
+//        map.addMarker(joeSmithMarker);
+//           }
     }
 
     /**
@@ -98,6 +105,10 @@ public class FXMLMapsController implements Initializable, MapComponentInitialize
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         mapView.addMapInializedListener(this);
+
+        combo.getItems().add("hola");
+        combo.getItems().add("hola1");
+        combo.getItems().add("hola2");
     }
 
     @Override
@@ -112,20 +123,23 @@ public class FXMLMapsController implements Initializable, MapComponentInitialize
         MapOptions mapOptions = new MapOptions();
 
         mapOptions.center(new LatLong(47.6097, -122.3331))
-          .mapType(MapTypeIdEnum.ROADMAP)
-          .overviewMapControl(false)
-          .panControl(false)
-          .rotateControl(false)
-          .scaleControl(false)
-          .streetViewControl(false)
-          .zoomControl(false)
-          .zoom(12);
+                .mapType(MapTypeIdEnum.ROADMAP)
+                .overviewMapControl(false)
+                .panControl(false)
+                .rotateControl(false)
+                .scaleControl(false)
+                .streetViewControl(false)
+                .zoomControl(false)
+                .zoom(12);
 
         map = mapView.createMap(mapOptions);
 
         //Add markers to the map
         MarkerOptions markerOptions1 = new MarkerOptions();
         markerOptions1.position(joeSmithLocation);
+        markerOptions1.label("LABEL");
+        markerOptions1.title("TITLE");
+        markerOptions1.icon("https://png.clipart.me/istock/previews/5059/50591994-bus-icon-glossy-green-round-button.jpg");
 
         MarkerOptions markerOptions2 = new MarkerOptions();
         markerOptions2.position(joshAndersonLocation);
@@ -153,11 +167,24 @@ public class FXMLMapsController implements Initializable, MapComponentInitialize
 
         InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
         infoWindowOptions.content("<h2>Fred Wilkie</h2>"
-          + "Current Location: Safeway<br>"
-          + "ETA: 45 minutes");
+                + "Current Location: Safeway<br>"
+                + "ETA: 45 minutes");
 
         InfoWindow fredWilkeInfoWindow = new InfoWindow(infoWindowOptions);
         fredWilkeInfoWindow.open(map, fredWilkieMarker);
+        mapView.getMap().addUIEventHandler(joeSmithMarker, UIEventType.click, (JSObject obj) -> {
+            LatLong ll = new LatLong((JSObject) obj.getMember("latLng"));
+
+            combo.getItems().add(ll.toString());
+            InfoWindowOptions infoWindowOptions1 = new InfoWindowOptions();
+            infoWindowOptions1.content("<h2>Fred Wilkie</h2>"
+                    + "Current Location: Safeway<br>"
+                    + "ETA: 45 minutes");
+
+            InfoWindow fredWilkeInfoWindow1 = new InfoWindow(infoWindowOptions1);
+            fredWilkeInfoWindow1.open(map, joeSmithMarker);
+
+        });
     }
 
 }
