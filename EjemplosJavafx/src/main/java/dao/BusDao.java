@@ -24,6 +24,7 @@ import com.google.api.client.json.JsonObjectParser;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.ArrayMap;
 import com.google.api.client.util.GenericData;
+import model.Arrive;
 import model.Arrives;
 import model.Stop;
 import model.StopsLines;
@@ -48,6 +49,16 @@ public class BusDao {
         }
         
         System.out.println(b.GetArrivesStop("2794"));
+        
+        Arrives arrives = m.readValue(b.GetArrivesStop("2794"), new TypeReference<Arrives>() {
+        });
+        for (Arrive stop : arrives.getArrives()) {
+            System.out.println(stop.getStopId());
+            System.out.println(stop.getBusTimeLeft());
+            System.out.println(stop.getLatitude());
+            System.out.println(stop.getLongitude());
+            System.out.println(stop.getBusPositionType());
+        }
 
     }
 

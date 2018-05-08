@@ -13,21 +13,21 @@ import java.util.ArrayList;
  * @author oscar
  */
 public class Arrives {
-
-    @Key
-    private ArrayList arrives;
+    
+    private ArrayList<Arrive> arrives;
 
     public Arrives() {
     }
 
-    public ArrayList getArrives() {
+    public ArrayList<Arrive> getArrives() {
         return arrives;
     }
 
-    public void setArrives(ArrayList arrives) {
+    public void setArrives(ArrayList<Arrive> arrives) {
         this.arrives = arrives;
     }
 
+  
     @Override
     public String toString() {
         return this.arrives.size() + " "; //To change body of generated methods, choose Tools | Templates.
