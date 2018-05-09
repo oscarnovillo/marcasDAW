@@ -42,7 +42,8 @@ public class BusDao {
         ObjectMapper m = new ObjectMapper();
         m.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-        StopsLines stops = m.readValue(b.GetStopsLine("76", "PLAZA BEATA"), new TypeReference<StopsLines>() {
+        StopsLines stops = m.readValue(b.GetStopsLine("76", "PLAZA BEATA"), 
+          new TypeReference<StopsLines>() {
         });
         for (Stop stop : stops.getStop()) {
             System.out.println(stop.getStopId());
