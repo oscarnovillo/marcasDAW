@@ -33,8 +33,6 @@ public class JavaXML {
         jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
         jaxbMarshaller.marshal(poli, new File("polideportivo.xml"));
-
-        //jaxbMarshaller.marshal(poli, System.out);
         
         
         Unmarshaller um = jaxbContext.createUnmarshaller();

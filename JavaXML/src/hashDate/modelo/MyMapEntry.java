@@ -24,5 +24,6 @@ public class MyMapEntry {
             @XmlElement(name = "tonto", type = Tonto.class)
             
     })
+
    public Persona value;
 }

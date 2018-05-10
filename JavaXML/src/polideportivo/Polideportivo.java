@@ -171,7 +171,7 @@ public class Polideportivo {
 
     public void reciboAlumno() {
         for (int i = 0; i < alumnos.length; i++) {
-            System.out.println(alumnos[i].getNombre() + " " + alumnos[i].getApellidos() + " paga " + alumnos[i].getRecibo());
+            System.out.println(alumnos[i].getNombre() + " " + " paga " + alumnos[i].getRecibo());
                                     
         }
     }

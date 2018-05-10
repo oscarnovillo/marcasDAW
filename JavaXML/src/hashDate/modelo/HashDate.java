@@ -52,7 +52,7 @@ public class HashDate {
     private LinkedList<LocalDate> fechas;
     
 
-
+    
     private LocalDate fecha;
 
     
@@ -68,6 +68,7 @@ public class HashDate {
         this.fechas = fechas;
     }
 
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
     public LocalDate getFecha() {
         return fecha;
     }

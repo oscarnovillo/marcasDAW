@@ -15,8 +15,9 @@ import javax.xml.bind.annotation.XmlID;
  */
 public class Alumno {
     
-    
+  
     private String nombre;
+    @XmlElement (name = "apellidos")
     private String apellidos;
     private float recibo;
 
@@ -76,6 +77,7 @@ public class Alumno {
 //    return Integer.toString(System.identityHashCode(this));
 //}
     
+    @XmlElement (name = "n")
     public String getNombre() {
         return nombre;
     }
@@ -85,13 +87,6 @@ public class Alumno {
     }
 
 
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
 
     public float getRecibo() {
         return recibo;
